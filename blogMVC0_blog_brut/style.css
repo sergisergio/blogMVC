@@ -1,0 +1,79 @@
+h1, h2,
+h3, h4 {
+    text-align: center;
+}
+
+h1:first-child {
+    margin-bottom: 60px !important;
+}
+
+h3 {
+    background-color: black;
+    color: white;
+    font-size: 0.9em;
+    margin-bottom: 0px;
+}
+h4 {
+    margin-bottom : 20px;
+}
+
+.news p {
+    background-color: #CCCCCC;
+    margin-top: 0px;
+}
+
+.news {
+    width: 70%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+.comments {
+    display: block;
+    margin: 0 auto;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+    margin-bottom : 60px;
+    background :#e95325;
+    color : #fff;
+    border : solid 1px #e95325;
+    outline: none;
+}
+.btn a {
+    color : #fff;
+}
+hr {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    border: 0 !important;
+    border-top: 3px solid #e95325 !important;
+}
+.tuto {
+    width: 70%;
+    margin: auto;
+    
+}
+.tuto p {
+    text-align : center;
+}
+
+img {
+    display: block;
+    margin : 20px auto;
+}
+.ameliorations {
+    width: 70%;
+    margin: auto;
+    
+}
+.ameliorations p {
+    text-align : center;
+}
