@@ -53,7 +53,7 @@ while ($donnees = $req->fetch())
 {
 ?>
             <p><strong><?php echo htmlspecialchars($donnees['auteur']); ?></strong> le
-                <?php echo $donnees['date_commentaire_fr']; ?>
+                <?php echo $donnees['date_commentaire_fr']; ?><a href="modify.php?commentaire=<?php echo $donnees['id']; ?>"> (Modifier)</a>
             </p>
             <p>
                 <?php echo nl2br(htmlspecialchars($donnees['commentaire'])); ?>

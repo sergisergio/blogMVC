@@ -1,8 +1,8 @@
-<?php $title = 'STEP 10'; ?>
+<?php $title = 'STEP 11'; ?>
 
 <?php ob_start(); ?>
-<h1> Step 10 : Namespaces</h1>
-<btn class="btn btn-default text-center"><a href="https://openclassrooms.com/courses/adoptez-une-architecture-mvc-en-php/tirer-parti-de-lheritage" target="_blank">Héritage</a></btn>
+<h1> Step 11 : Activité</h1>
+<btn class="btn btn-default text-center"><a href="#" target="_blank">Activité</a></btn>
 <p class="text-center">Derniers billets du blog :</p>
 
 

@@ -36,19 +36,27 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+// Ici la fonction editComment du contrôleur qui appelle la fonction getComment du modèle commentManager.php
 
-function edit($newComment, $commentID, $postID)
+function editComment($postId)
 {
-    $modifyManager = new \Valentin\Blog\Model\CommentManager();
- 
-    $affectedComment = $modifyManager->editComment($newComment,$commentID);
- 
-    require('view/frontend/commentView.php');
- 
-    if ($affectedComment == false){
-        throw new Exception('Impossible d\'editer le commentaire !');
-    }
-    else {
-        header('Location : index.php?action=post&id=' .$postID);
-    }
+    $commentManager = new \Openclassrooms\Blog\Model\CommentManager();
+
+    //$editedLines = $commentManager->getComment($postId);
+
+    require('view/frontend/commentView.php');
+}
+
+function upComment($postId, $comment)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+    $editedComment = $commentManager->updateComment($postId, $comment);
+
+    if ($editedComment === false) {
+        throw new Exception('Impossible de modifier le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $postId);
+    }
 }

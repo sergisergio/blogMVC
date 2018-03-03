@@ -1,7 +1,7 @@
-<?php $title = 'STEP 10'; ?>
+<?php $title = 'STEP 11'; ?>
 
 <?php ob_start(); ?>
-    <h1 class="text-center"> Step 10 : Namespaces</h1>
+    <h1 class="text-center"> Step 11 : Activité</h1>
     <p class="text-center"><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
     <div class="news">
         <h3>
@@ -18,7 +18,8 @@
         {
         ?>
         <p class="text-center"><strong><?= htmlspecialchars($comment['author']) ?></strong> le
-            <?= $comment['comment_date_fr'] ?>
+            <?= $comment['comment_date_fr'] ?><a href="index.php?action=editComment&amp;id=<?= $comment['id']?>&amp;postID=<?= $post['id'] ?>"> (Modifier)</a>
+            <a href="index.php?action=deleteComment&id=<?= $data['id'] ?>"> (Supprimer)</a>
         </p>
         <p class="text-center">
             <?= nl2br(htmlspecialchars($comment['comment'])) ?>
@@ -40,15 +41,6 @@
                 <div>
                     <input type="submit" /> </div>
             </form>
-<?php
-while ($comment = $comments->fetch())
-{
-?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="index.php?action=edit&amp;id=<?= $comment['id']?>&amp;postID=<?= $post['id'] ?>">(modifier)</a></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-<?php
-}
-?>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

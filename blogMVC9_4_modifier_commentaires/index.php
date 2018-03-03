@@ -30,20 +30,22 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-        elseif($_GET['action'] == 'edit'){
-            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['postID']) && $_GET['postID'] > 0){
-                if (isset($_POST['newComment'])) {
-            edit($_POST['newComment'], $_GET['id'], $_GET['postID']); //ligne 37
-          }
-          else {
-            throw new Exception ('Bug');
-          }
-        }
-      }   
-            else {
-                throw new Exception('Aucun identifiant de billet envoyé');
-            }
-        }
+        elseif ($_GET['action'] == 'editComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['postID']) && $_GET['postID'] > 0) {
+            editComment($_GET['id']);
+            }
+        }
+        elseif ($_GET['action'] == 'sendUpdatedComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['comment'])) {
+                    upcomment($_GET['id'], $_POST['comment']);
+                }
+                else {
+                    // Autre exception
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+        }
     }
     else {
         listPosts();

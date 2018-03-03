@@ -23,16 +23,24 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
-    
-    //Edit comment
-    public function editComment($newComment, $commentID)
+
+    // Ici je pige pas, j'ai tjrs une parse error avec la première accolade...
+
+    /*public function getComment($postId)
     {
         $db = $this->dbConnect();
-        $updateComment = $db->prepare('UPDATE comments SET comment = ? WHERE id=?');
-        $affectedComment = $newComment->execute(array($newComment, $commentID)); //ligne 31
+        $newComment = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ?');
+        $editedLines = $newComment->execute(array($postId)); 
  
-        return $affectedComment;
-    }
+        return $editedLines;
+    }*/
 
-    
+    public function updateComment($postId, $comment)
+    {
+         $db = $this->dbConnect();
+         $comments = $db->prepare('UPDATE comments SET comment = ? WHERE id = ?');
+        $editedComment = $comments->execute(array($postId, $comment)); //ligne 31
+ 
+        return $editedComment;
+    }    
 }
